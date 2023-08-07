@@ -1,0 +1,53 @@
+
+Q1:
+
+The output:  hey from message1
+The explanation: First, the @Bean annotation will create a String object and store it in the
+context. When the app starts running, the method will be called, and the message will be printed.
+
+
+Q2:
+
+The output:  
+hey from message1
+hey from message2
+The explanation: There are getMessage1 and getMessage2 methods defined as beans.
+and the @Qualifie annotation shows the order of these methods. So the getMessage2 method depends on the getMessage1 method, which means the getMessage1 method will print first.
+
+
+
+Q3:
+The output:  
+
+hey from message1
+hey from message3
+hey from message2
+
+The explanation: 
+As mentioned in Q2, the @Qualifie annotation shows the order of these methods. and the dependency. So in this case, the getMessage1 method will be printed first because it doesn't depend on any other method. After that, the getMessage3 method will be printed next because the getMessage2 method depends on the getMessage3 method, and then the last method to print is getMessage2.
+
+
+
+Q4:
+The output: 
+hey from message1
+hey from Main controller
+hey from message3
+hey from message2
+
+The explanation:
+As mentioned before, the @Qualifie annotation shows the order of these methods and the dependency. So in this case, the getMessage1 method will be printed first because it doesn't depend on any other method. After that, the method MainController in the MainController class will be printed next because it depends on the getMessage1 method in the main class, and then the getMessage3 method will be printed next because the getMessage2 method depends on the getMessage3 method, and then the last method to print is getMessage2.
+
+
+
+Q5:
+
+The output: 
+hey from message3
+hey from message2
+hey from Main controller
+hey from message1
+
+The explanation:
+Because we don't have an @Qualifie in the getMessage1 method and the getMessage3 method, spring context is free to  start with any one of them. So it starts printing with method 3. After that, because the getMessage2 method depends on the getMessage3 method, getMessage2 will be printed next. and next will be the MainController method to print because it depends on the getMessage2 method. Lastly, getMessage1 will be printed.
+ 
